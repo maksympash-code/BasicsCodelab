@@ -21,6 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.BasicsCodelabTheme
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -74,16 +76,19 @@ fun OnboardingScreen(
 @Composable
 private fun Greetings(
     modifier: Modifier = Modifier,
-    names: List<String> = listOf("World", "Android"),
+    names: List<String> = List(1000) {"$it"},
     ) {
     Surface(
         color = MaterialTheme.colorScheme.background,
         modifier = modifier
     ) {
-        Column (modifier = modifier.padding(vertical = 4.dp)) {
-            for (name in names) {
-                Greeting(name)
+        LazyColumn (modifier = modifier.padding(vertical = 4.dp)) {
+            items (items = names) {name ->
+                for (name in names) {
+                    Greeting(name)
+                }
             }
+
         }
 
     }
