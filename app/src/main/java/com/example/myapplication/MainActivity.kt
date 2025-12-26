@@ -67,7 +67,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         ){
             Column (
                 modifier = modifier
-                    .weight(1f)
+                    .weight(1f) // .fillMaxSize()
                     .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello ")
