@@ -9,7 +9,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = rootProject.extra["BasicsCodelab"] as String
         minSdk = 24
         targetSdk = 36
         versionCode = 1
